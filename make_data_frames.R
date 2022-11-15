@@ -25,7 +25,8 @@ boy_names <- lapply(all_names, function(x){
 })
 
 boy_names <- boy_names %>%
-  reduce(inner_join, by = "Male_name")
+  reduce(inner_join, by = "Male_name") %>%
+  tibble::column_to_rownames("Male_name")
 
 write.csv(boy_names, here("files/boy_name_counts.csv"))
 
@@ -34,7 +35,8 @@ girl_names <- lapply(all_names, function(x){
 })
 
 girl_names <- girl_names %>%
-  reduce(inner_join, by = "Female_name")
+  reduce(inner_join, by = "Female_name") %>%
+  tibble::column_to_rownames("Female_name")
 
 write.csv(girl_names, here("files/girl_name_counts.csv"))
 
@@ -43,7 +45,8 @@ boy_ranks <- lapply(all_names, function(x){
 })
 
 boy_ranks <- boy_ranks %>%
-  reduce(inner_join, by = "Male_name")
+  reduce(inner_join, by = "Male_name") %>%
+  tibble::column_to_rownames("Male_name")
 
 write.csv(boy_ranks, here("files/boy_name_ranks.csv"))
 
@@ -53,7 +56,8 @@ girl_ranks <- lapply(all_names, function(x){
 })
 
 girl_ranks <- girl_ranks %>%
-  reduce(inner_join, by = "Female_name")
+  reduce(inner_join, by = "Female_name") %>%
+  tibble::column_to_rownames("Female_name")
 
 write.csv(girl_ranks, here("files/girl_name_ranks.csv"))
 
